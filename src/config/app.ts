@@ -2,14 +2,17 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 const cors = require("cors");
 import { CommonRoutes } from "../routes/common";
+import { PDFRoutes } from "../routes/pdf";
 
 class App {
   public app: express.Application;
   private common_routes: CommonRoutes = new CommonRoutes();
+  private pdf_routes: PDFRoutes = new PDFRoutes();
 
   constructor() {
-    this.app = express();
+    this.app = express.default();
     this.config();
+    this.pdf_routes.route(this.app);
     this.common_routes.route(this.app);
   }
 
