@@ -2,6 +2,7 @@ import PDFDocument = require("pdfkit");
 export const createPdf = () => {
   const doc = new PDFDocument({
     margin: 20,
+    size: "a4",
   });
   doc.registerFont("gillsan", __dirname + "../../../assets/fonts/gillsan.ttf");
   doc.registerFont(
